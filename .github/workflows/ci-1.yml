@@ -1,0 +1,13 @@
+name: Runs when CI is completed
+
+needs: ci.yml
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+
+          - name: running after the ci.yml was executed
+            uses: echo "successful"

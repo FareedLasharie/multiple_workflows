@@ -1,13 +1,21 @@
-name: Runs when CI is completed
+name: Runs when CI-1 is completed successfully
 
-needs: ci.yml
 
+on:
+  repository_dispatch:
+    types: {
+            "event_type": "ci.yml",
+            "client_payload": {
+              "passed": true,
+              "message": "First Workflow Executed successfully"
+  }
+}
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-
-          - name: running after the ci.yml was executed
-            uses: echo "successful"
+  run_if_successful:
+    if: ${{ github.event.client_payload.passed }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE

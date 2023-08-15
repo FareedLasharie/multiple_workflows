@@ -1,0 +1,14 @@
+name: one workflow triggers another one
+
+on: 
+  push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+
+        steps:
+          - name: CODE CHECKOUT
+            uses: actions/checkout@v3
+            run: echo "successful"

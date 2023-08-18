@@ -1,0 +1,16 @@
+name: cwt-release-stg
+
+on:
+  push:
+    branches:
+      - main   
+
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: workflow 1
+        run: echo "workflow 1" >> $GITHUB_ENV      

@@ -1,0 +1,16 @@
+name: Deploy Preview
+
+on:
+  workflow_run:
+    workflows: ["cwt-release-stg"]
+    types:
+      - completed
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: workflow 2
+        run: echo "workflow 2" >> $GITHUB_ENV

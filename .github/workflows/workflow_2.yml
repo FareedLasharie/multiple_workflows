@@ -13,4 +13,4 @@ jobs:
     steps:
 
       - name: workflow 2
-        run: echo "workflow 2" >> $GITHUB_ENV
+        run: echo "workflow 2"
